@@ -1,6 +1,6 @@
 # TODO App
 
-A full-stack TODO app built with React and an Express + MongoDB API.
+A full-stack TODO app.
 
 ## Repository layout
 
