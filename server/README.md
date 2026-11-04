@@ -1,50 +1,60 @@
 # TODO App Backend
 
-## .env
+## Setup
 
-Copy the example file and set your local values.
-
-```bash
-cp .env.example .env
-```
-
-Set `PORT` and `MONGODB_URI` in `.env`.
-
-## Project Setup
-
-Install dependencies and start MongoDB.
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Start MongoDB locally for development:
+Create the environment file:
+
+```bash
+cp .env.example .env
+```
+
+Set `PORT` in `.env`.
+
+Start MongoDB locally in a separate terminal:
 
 ```bash
 mkdir data
 mongod --dbpath data
 ```
 
-## Commands
+Set `MONGODB_URI` in `.env` to your connection string:
 
-Start the API in development or normal mode.
+```env
+MONGODB_URI=mongodb://<host>:<port>/<database>
+```
+
+For Atlas, use your Atlas connection string instead. The database and collection are created on the first write.
+
+Start the API:
 
 ```bash
 npm run dev
-npm start
 ```
 
-## OpenAPI Docs
+Use `npm start` for a normal run without nodemon.
 
-Available while the server is running.
+## Docs
 
 - Swagger UI: `/api-docs`
 - JSON spec: `/api-docs.json`
 
 ## Tests
 
-Run the API tests and print coverage.
+Run:
 
 ```bash
 npm test
 ```
+
+## Assumptions and Limitations
+
+- Single shared todo list; no users or authentication.
+- MongoDB must be running before the server starts; there is no reconnect retry.
+- Todos are not paginated.
+- Titles are limited to 120 characters; descriptions to 1000.
