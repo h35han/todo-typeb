@@ -45,12 +45,12 @@ In development, Vite proxies `/api` requests to `http://localhost:8080`. Set `VI
 ## Features
 
 - Loads todos from the backend API
+- Newest tasks appear first
 - Creates, updates, completes, and deletes todos through the API
 - Description editing in the maximized editor
-- Show or hide descriptions in the task list
+- Header switches for descriptions and completed tasks, persisted in localStorage
 - Trash button discards the draft in create mode; the back arrow discards unsaved edits
 - Optimistic toggle and delete updates with rollback on failure
-- Hide completed tasks
 - Empty, loading, and error states
 - Mobile-first responsive shell
 - shadcn/Base UI controls

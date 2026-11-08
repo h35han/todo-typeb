@@ -110,7 +110,7 @@ export function TaskEditor({
         </Button>
       </header>
 
-      <div className="flex-1 overflow-y-auto px-5 py-2">
+      <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-2">
         <Textarea
           ref={titleRef}
           rows={1}

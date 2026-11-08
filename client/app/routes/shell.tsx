@@ -4,8 +4,8 @@ import { buttonVariants } from "~/components/ui/button"
 
 function Frame({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-dvh">
-      <div className="mx-auto flex h-dvh w-full max-w-150 flex-col border-border bg-background pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] md:border-x">
+    <div className="fixed inset-0 h-dvh overflow-hidden overscroll-none">
+      <div className="mx-auto flex h-full w-full max-w-150 flex-col overflow-hidden border-border bg-background pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] md:border-x">
         {children}
       </div>
     </div>

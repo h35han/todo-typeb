@@ -60,7 +60,7 @@ export function TaskProvider({ children }: { children: ReactNode }) {
 
     const task = await api.create(trimmed, description.trim())
     setTasks((prev) =>
-      [...prev, task].sort((a, b) => a.createdAt.localeCompare(b.createdAt))
+      [task, ...prev].sort((a, b) => b.createdAt.localeCompare(a.createdAt))
     )
     return task
   }, [])

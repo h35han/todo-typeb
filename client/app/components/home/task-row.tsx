@@ -21,7 +21,7 @@ export function TaskRow({ task, showDescription, onToggle, onOpen }: TaskRowProp
           onOpen(task)
         }
       }}
-      className="flex cursor-pointer items-start gap-3 px-5 py-4 transition-colors outline-none hover:bg-muted focus-visible:bg-muted active:bg-muted"
+      className="flex cursor-pointer items-center gap-3 px-5 py-4 transition-colors outline-none hover:bg-muted focus-visible:bg-muted active:bg-muted"
     >
       <span
         onClick={(event) => event.stopPropagation()}

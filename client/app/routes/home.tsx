@@ -6,6 +6,7 @@ import { TaskComposer } from "~/components/home/task-composer"
 import { TaskList } from "~/components/home/task-list"
 import type { Task } from "~/lib/api"
 import { useTaskStore } from "~/lib/task-store"
+import { usePersistedState } from "~/lib/use-persisted-state"
 
 function messageOf(error: unknown) {
   return error instanceof Error ? error.message : "Something went wrong"
@@ -25,8 +26,14 @@ export default function Home() {
     toggleTask,
   } = useTaskStore()
 
-  const [hideCompleted, setHideCompleted] = useState(false)
-  const [showDescriptions, setShowDescriptions] = useState(true)
+  const [hideCompleted, setHideCompleted, hideCompletedReady] = usePersistedState(
+    "todo:hide-completed",
+    false
+  )
+  const [showDescriptions, setShowDescriptions, descriptionsReady] = usePersistedState(
+    "todo:show-descriptions",
+    true
+  )
   const [actionError, setActionError] = useState<string | null>(null)
   const [adding, setAdding] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
@@ -46,10 +53,7 @@ export default function Home() {
       setDraft("")
 
       requestAnimationFrame(() => {
-        listRef.current?.scrollTo({
-          top: listRef.current.scrollHeight,
-          behavior: "smooth",
-        })
+        listRef.current?.scrollTo({ top: 0, behavior: "smooth" })
       })
 
       return true
@@ -79,6 +83,7 @@ export default function Home() {
   return (
     <div className="flex h-full min-h-0 flex-col">
       <HomeHeader
+        ready={hideCompletedReady && descriptionsReady}
         showDescriptions={showDescriptions}
         onShowDescriptionsChange={setShowDescriptions}
         hideCompleted={hideCompleted}
@@ -93,7 +98,7 @@ export default function Home() {
         />
       )}
 
-      <div ref={listRef} className="flex-1 overflow-y-auto pb-2">
+      <div ref={listRef} className="flex-1 overflow-y-auto overscroll-contain pb-2">
         <TaskList
           tasks={tasks}
           visibleTasks={visibleTasks}
