@@ -1,21 +1,64 @@
-# React Router + shadcn/ui
+# TODO App Frontend
 
-This is a template for a new React Router project with React, TypeScript, and shadcn/ui.
+A React Router frontend for the TODO app, built with React, TypeScript, Tailwind CSS, and shadcn/ui components on Base UI primitives.
 
-## Adding components
+## Requirements
 
-To add components to your app, run the following command:
+- Node.js 20.19 or newer
+- pnpm
+- The backend API running on port `8080`
+
+## Setup
+
+Install dependencies:
 
 ```bash
-npx shadcn@latest add button
+pnpm install
 ```
 
-This will place the ui components in the `components` directory.
+Optionally create an environment file:
 
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
+```bash
+cp .env.example .env
 ```
+
+Start the dev server:
+
+```bash
+pnpm dev
+```
+
+In development, Vite proxies `/api` requests to `http://localhost:8080`. Set `VITE_API_URL` in `.env` to point at another API origin.
+
+## Scripts
+
+- `pnpm dev` — start the dev server
+- `pnpm build` — type-check and build for production
+- `pnpm typecheck` — run React Router typegen and TypeScript
+
+## Screens
+
+- Home: task list, completed filter, and title-only mini editor
+- View/Edit: edit the title and description, discard changes, or delete the task
+- Create: add a task with a title and optional description
+
+## Features
+
+- Loads todos from the backend API
+- Creates, updates, completes, and deletes todos through the API
+- Description editing in the maximized editor
+- Show or hide descriptions in the task list
+- Trash button discards the draft in create mode; the back arrow discards unsaved edits
+- Optimistic toggle and delete updates with rollback on failure
+- Hide completed tasks
+- Empty, loading, and error states
+- Mobile-first responsive shell
+- shadcn/Base UI controls
+
+## Assumptions and Limitations
+
+- The backend must be running before the frontend loads tasks.
+- The mini editor edits the title only. Use the expanded editor to add a description.
+- The backend limits titles to 120 characters and descriptions to 1000 characters.
+- The mini editor draft is kept in memory and is not persisted.
+- There is no authentication; the app manages one shared list.
