@@ -52,7 +52,7 @@ export function TaskRow({
         {showDescription && task.description && (
           <p
             className={cn(
-              "mt-1.5 text-[14px] leading-[1.4] wrap-break-word whitespace-pre-wrap text-muted-foreground",
+              "mt-1.5 font-sans text-[14px] leading-[1.4] wrap-break-word whitespace-pre-wrap text-muted-foreground",
               task.done && "line-through"
             )}
           >

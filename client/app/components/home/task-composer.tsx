@@ -53,7 +53,7 @@ export function TaskComposer({
   }
 
   return (
-    <div className="shrink-0 border-t border-border px-5 py-4">
+    <div className="shrink-0 border-t border-border px-5 py-6">
       <Textarea
         ref={textareaRef}
         rows={1}

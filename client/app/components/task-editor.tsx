@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { ArrowLeft, Check, Loader2, Trash2 } from "lucide-react"
+import { ArrowLeft, Check, Loader2, Trash2, X } from "lucide-react"
 import { Button } from "~/components/ui/button"
 import {
   AlertDialog,
@@ -127,13 +127,13 @@ export function TaskEditor({
           onChange={(event) => setDescription(event.target.value)}
           placeholder="Add a description…"
           aria-label="Task description"
-          className="mt-4 min-h-[1.5em] overflow-hidden text-[16px] leading-normal"
+          className="mt-4 min-h-[1.5em] overflow-hidden font-sans text-[16px] leading-normal"
         />
       </div>
 
       {error && <p className="px-5 pb-1 text-sm text-destructive">{error}</p>}
 
-      <div className="flex items-center justify-between px-5 py-4">
+      <div className="flex items-center justify-between px-5 py-6">
         {/* Edit deletes the task; create discards the draft with the same control. */}
         {mode === "edit" ? (
           <Button
@@ -161,7 +161,7 @@ export function TaskEditor({
             className="size-12 rounded-full bg-destructive/10 text-destructive hover:bg-destructive/20"
             onClick={onDiscardDraft}
           >
-            <Trash2 className="size-5" />
+            <X className="size-5" />
           </Button>
         ) : (
           <span />
