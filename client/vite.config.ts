@@ -6,9 +6,13 @@ export default defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [tailwindcss(), reactRouter()],
   server: {
+    host: true,
     proxy: {
       "/api": "http://localhost:8080",
     },
+  },
+  preview: {
+    host: true,
   },
   optimizeDeps: {
     include: [
