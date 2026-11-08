@@ -50,12 +50,10 @@ export function TaskEditor({
   const [deleting, setDeleting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const titleRef = useRef<HTMLTextAreaElement>(null)
-  const descriptionRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
     resize(titleRef.current, 0.45)
-    resize(descriptionRef.current, 0.35)
-  }, [title, description])
+  }, [title])
 
   useEffect(() => {
     const el = titleRef.current
@@ -110,7 +108,7 @@ export function TaskEditor({
         </Button>
       </header>
 
-      <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-2">
+      <div className="flex min-h-0 flex-1 flex-col px-5 py-2">
         <Textarea
           ref={titleRef}
           rows={1}
@@ -121,13 +119,12 @@ export function TaskEditor({
           className="min-h-[1.3em] overflow-hidden text-[24px] leading-[1.3]"
         />
         <Textarea
-          ref={descriptionRef}
           rows={1}
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           placeholder="Add a description…"
           aria-label="Task description"
-          className="mt-4 min-h-[1.5em] overflow-hidden font-sans text-[16px] leading-normal"
+          className="mt-4 min-h-0 flex-1 resize-none overflow-y-auto font-sans text-[16px] leading-normal"
         />
       </div>
 
