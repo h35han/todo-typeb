@@ -55,7 +55,11 @@ export function TaskList({
             <EmptyDescription>{error}</EmptyDescription>
           </EmptyHeader>
           <EmptyContent>
-            <Button variant="outline" className="rounded-full" onClick={onRetry}>
+            <Button
+              variant="outline"
+              className="rounded-full"
+              onClick={onRetry}
+            >
               Try again
             </Button>
           </EmptyContent>
@@ -89,7 +93,11 @@ export function TaskList({
           <EmptyDescription>Everything here is completed.</EmptyDescription>
         </EmptyHeader>
         <EmptyContent>
-          <Button variant="outline" className="rounded-full" onClick={onShowCompleted}>
+          <Button
+            variant="outline"
+            className="rounded-full"
+            onClick={onShowCompleted}
+          >
             Show completed
           </Button>
         </EmptyContent>

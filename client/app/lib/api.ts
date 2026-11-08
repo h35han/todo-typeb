@@ -58,7 +58,9 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
 export const api = {
   list: async () => {
     const todos = await request<TodoResponse[]>("/api/todos")
-    return todos.map(toTask).sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+    return todos
+      .map(toTask)
+      .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
   },
 
   create: async (title: string, description: string) => {

@@ -118,7 +118,7 @@ export function TaskEditor({
           onChange={(event) => setTitle(event.target.value)}
           placeholder="Task title"
           aria-label="Task title"
-          className="min-h-[1.3em] overflow-hidden text-[30px] leading-[1.3]"
+          className="min-h-[1.3em] overflow-hidden text-[24px] leading-[1.3]"
         />
         <Textarea
           ref={descriptionRef}
@@ -127,7 +127,7 @@ export function TaskEditor({
           onChange={(event) => setDescription(event.target.value)}
           placeholder="Add a description…"
           aria-label="Task description"
-          className="mt-4 min-h-[1.5em] overflow-hidden text-[16px] leading-[1.5]"
+          className="mt-4 min-h-[1.5em] overflow-hidden text-[16px] leading-normal"
         />
       </div>
 
@@ -174,7 +174,11 @@ export function TaskEditor({
           disabled={!title.trim() || saving}
           onClick={() => void handleSave()}
         >
-          {saving ? <Loader2 className="size-5 animate-spin" /> : <Check className="size-5" />}
+          {saving ? (
+            <Loader2 className="size-5 animate-spin" />
+          ) : (
+            <Check className="size-5" />
+          )}
         </Button>
       </div>
 

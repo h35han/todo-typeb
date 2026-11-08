@@ -53,7 +53,7 @@ export function TaskComposer({
   }
 
   return (
-    <div className="shrink-0 border-t border-border px-5 py-3">
+    <div className="shrink-0 border-t border-border px-5 py-4">
       <Textarea
         ref={textareaRef}
         rows={1}
@@ -62,9 +62,9 @@ export function TaskComposer({
         onKeyDown={handleKeyDown}
         placeholder="Write a task…"
         aria-label="New task"
-        className="min-h-[1.4em] overflow-hidden text-[18px] leading-[1.4]"
+        className="min-h-[1.4em] overflow-hidden text-[24px] leading-[1.4]"
       />
-      <div className="mt-3 flex items-center justify-between">
+      <div className="mt-5 flex items-center justify-between">
         <Button
           variant="outline"
           size="icon"
@@ -81,7 +81,11 @@ export function TaskComposer({
           disabled={!draft.trim() || adding}
           onClick={() => void handleAdd()}
         >
-          {adding ? <Loader2 className="size-4 animate-spin" /> : <Plus className="size-5" />}
+          {adding ? (
+            <Loader2 className="size-4 animate-spin" />
+          ) : (
+            <Plus className="size-5" />
+          )}
         </Button>
       </div>
     </div>

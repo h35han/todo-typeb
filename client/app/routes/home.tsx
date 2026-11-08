@@ -26,19 +26,17 @@ export default function Home() {
     toggleTask,
   } = useTaskStore()
 
-  const [hideCompleted, setHideCompleted, hideCompletedReady] = usePersistedState(
-    "todo:hide-completed",
-    false
-  )
-  const [showDescriptions, setShowDescriptions, descriptionsReady] = usePersistedState(
-    "todo:show-descriptions",
-    true
-  )
+  const [hideCompleted, setHideCompleted, hideCompletedReady] =
+    usePersistedState("todo:hide-completed", false)
+  const [showDescriptions, setShowDescriptions, descriptionsReady] =
+    usePersistedState("todo:show-descriptions", true)
   const [actionError, setActionError] = useState<string | null>(null)
   const [adding, setAdding] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
 
-  const visibleTasks = hideCompleted ? tasks.filter((task) => !task.done) : tasks
+  const visibleTasks = hideCompleted
+    ? tasks.filter((task) => !task.done)
+    : tasks
   // With tasks on screen, show load errors in the banner. Otherwise TaskList owns the error state.
   const banner = actionError ?? (tasks.length > 0 ? error : null)
 
@@ -98,7 +96,10 @@ export default function Home() {
         />
       )}
 
-      <div ref={listRef} className="flex-1 overflow-y-auto overscroll-contain pb-2">
+      <div
+        ref={listRef}
+        className="flex-1 overflow-y-auto overscroll-contain pb-2"
+      >
         <TaskList
           tasks={tasks}
           visibleTasks={visibleTasks}

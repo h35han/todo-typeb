@@ -82,12 +82,16 @@ export function TaskProvider({ children }: { children: ReactNode }) {
       if (!current) return
 
       setTasks((prev) =>
-        prev.map((task) => (task.id === id ? { ...task, done: !task.done } : task))
+        prev.map((task) =>
+          task.id === id ? { ...task, done: !task.done } : task
+        )
       )
 
       try {
         const updated = await api.toggle(id)
-        setTasks((prev) => prev.map((task) => (task.id === id ? updated : task)))
+        setTasks((prev) =>
+          prev.map((task) => (task.id === id ? updated : task))
+        )
       } catch (err) {
         setTasks((prev) =>
           prev.map((task) =>

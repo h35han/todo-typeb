@@ -14,7 +14,8 @@ import { useTaskStore } from "~/lib/task-store"
 export default function TaskEdit() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { tasks, loading, error, reload, updateTask, deleteTask } = useTaskStore()
+  const { tasks, loading, error, reload, updateTask, deleteTask } =
+    useTaskStore()
   const task = tasks.find((item) => item.id === id)
 
   if (loading) {
@@ -31,14 +32,20 @@ export default function TaskEdit() {
       <div className="flex h-full min-h-0 flex-col">
         <Empty className="h-full">
           <EmptyHeader>
-            <EmptyTitle>{error ? "Could not load task" : "Task not found"}</EmptyTitle>
+            <EmptyTitle>
+              {error ? "Could not load task" : "Task not found"}
+            </EmptyTitle>
             <EmptyDescription>
               {error ?? "It may have been deleted or the link is wrong."}
             </EmptyDescription>
           </EmptyHeader>
           <EmptyContent>
             {error ? (
-              <Button variant="outline" className="rounded-full" onClick={() => void reload()}>
+              <Button
+                variant="outline"
+                className="rounded-full"
+                onClick={() => void reload()}
+              >
                 Try again
               </Button>
             ) : (

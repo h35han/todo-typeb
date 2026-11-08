@@ -9,7 +9,12 @@ interface TaskRowProps {
   onOpen: (task: Task) => void
 }
 
-export function TaskRow({ task, showDescription, onToggle, onOpen }: TaskRowProps) {
+export function TaskRow({
+  task,
+  showDescription,
+  onToggle,
+  onOpen,
+}: TaskRowProps) {
   return (
     <div
       role="button"
@@ -21,24 +26,24 @@ export function TaskRow({ task, showDescription, onToggle, onOpen }: TaskRowProp
           onOpen(task)
         }
       }}
-      className="flex cursor-pointer items-center gap-3 px-5 py-4 transition-colors outline-none hover:bg-muted focus-visible:bg-muted active:bg-muted"
+      className="flex cursor-pointer items-center gap-4 px-5 py-4 transition-colors outline-none hover:bg-muted focus-visible:bg-muted active:bg-muted"
     >
       <span
         onClick={(event) => event.stopPropagation()}
         onKeyDown={(event) => event.stopPropagation()}
+        className="pl-1"
       >
         <Checkbox
           checked={task.done}
           onCheckedChange={() => onToggle(task)}
           aria-label={`Mark "${task.title}" as ${task.done ? "not done" : "done"}`}
-          className="mt-0.5"
         />
       </span>
 
       <div className="min-w-0 flex-1">
         <p
           className={cn(
-            "text-[18px] leading-[1.4] whitespace-pre-wrap break-words",
+            "text-[18px] leading-[1.4] wrap-break-word whitespace-pre-wrap",
             task.done && "text-muted-foreground line-through"
           )}
         >
@@ -47,7 +52,7 @@ export function TaskRow({ task, showDescription, onToggle, onOpen }: TaskRowProp
         {showDescription && task.description && (
           <p
             className={cn(
-              "mt-1 text-sm leading-[1.4] whitespace-pre-wrap break-words text-muted-foreground",
+              "mt-1.5 text-[14px] leading-[1.4] wrap-break-word whitespace-pre-wrap text-muted-foreground",
               task.done && "line-through"
             )}
           >

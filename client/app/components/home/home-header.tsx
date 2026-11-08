@@ -17,11 +17,14 @@ export function HomeHeader({
   onHideCompletedChange,
 }: HomeHeaderProps) {
   return (
-    <header className="flex items-center justify-between px-5 pt-4 pb-2">
+    <header className="flex items-center justify-between px-5 py-5 pb-8">
       <h1 className="text-[36px] leading-none font-medium">Tasks</h1>
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
-          <AlignLeft className="size-4 text-muted-foreground" aria-hidden="true" />
+          <AlignLeft
+            className="size-4 text-muted-foreground"
+            aria-hidden="true"
+          />
           {ready ? (
             <Switch
               checked={showDescriptions}
@@ -30,7 +33,10 @@ export function HomeHeader({
               title="Show descriptions"
             />
           ) : (
-            <span className="h-6 w-11 rounded-full bg-input/60" aria-hidden="true" />
+            <span
+              className="h-6 w-11 rounded-full bg-input/60"
+              aria-hidden="true"
+            />
           )}
         </div>
         <div className="flex items-center gap-2">
@@ -43,7 +49,10 @@ export function HomeHeader({
               title="Hide completed tasks"
             />
           ) : (
-            <span className="h-6 w-11 rounded-full bg-input/60" aria-hidden="true" />
+            <span
+              className="h-6 w-11 rounded-full bg-input/60"
+              aria-hidden="true"
+            />
           )}
         </div>
       </div>
