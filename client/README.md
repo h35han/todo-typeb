@@ -30,6 +30,8 @@ pnpm dev
 
 In development, Vite proxies `/api` requests to `http://localhost:8080`. Set `VITE_API_URL` in `.env` to point at another API origin.
 
+The dev server listens on all network interfaces. Open the Network URL printed by `pnpm dev` from another device on the same local network.
+
 ## Scripts
 
 - `pnpm dev` — start the dev server
