@@ -60,7 +60,7 @@ function AlertDialogDescription({
 }: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {
   return (
     <AlertDialogPrimitive.Description
-      className={cn("text-sm text-muted-foreground", className)}
+      className={cn("font-sans text-sm text-muted-foreground", className)}
       {...props}
     />
   )

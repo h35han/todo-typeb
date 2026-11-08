@@ -53,7 +53,10 @@ function EmptyDescription({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("max-w-xs text-sm text-muted-foreground", className)}
+      className={cn(
+        "max-w-xs font-sans text-sm text-muted-foreground",
+        className
+      )}
       {...props}
     />
   )

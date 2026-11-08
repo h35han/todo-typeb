@@ -128,7 +128,9 @@ export function TaskEditor({
         />
       </div>
 
-      {error && <p className="px-5 pb-1 text-sm text-destructive">{error}</p>}
+      {error && (
+        <p className="px-5 pb-1 font-sans text-sm text-destructive">{error}</p>
+      )}
 
       <div className="flex items-center justify-between px-5 py-6">
         {/* Edit deletes the task; create discards the draft with the same control. */}
@@ -187,7 +189,9 @@ export function TaskEditor({
               This action cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
-          {error && <p className="text-sm text-destructive">{error}</p>}
+          {error && (
+            <p className="font-sans text-sm text-destructive">{error}</p>
+          )}
           <AlertDialogFooter>
             <Button
               variant="outline"

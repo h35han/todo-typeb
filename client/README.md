@@ -48,7 +48,7 @@ In development, Vite proxies `/api` requests to `http://localhost:8080`. Set `VI
 - Newest tasks appear first
 - Creates, updates, completes, and deletes todos through the API
 - Description editing in the maximized editor
-- Header switches for descriptions and completed tasks, persisted in localStorage
+- Header toggles for descriptions and completed tasks, persisted in localStorage
 - Trash button discards the draft in create mode; the back arrow discards unsaved edits
 - Optimistic toggle and delete updates with rollback on failure
 - Empty, loading, and error states

@@ -25,7 +25,7 @@ export function ErrorBoundary() {
     <Frame>
       <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
         <h1 className="text-2xl font-medium">Something went wrong</h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="font-sans text-sm text-muted-foreground">
           This screen could not be loaded.
         </p>
         <Link to="/" className={buttonVariants()}>

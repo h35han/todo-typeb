@@ -1,4 +1,4 @@
-import { Equal, Inbox, Loader2 } from "lucide-react"
+import { Cone,  Inbox, Loader2 } from "lucide-react"
 import { Button } from "~/components/ui/button"
 import {
   Empty,
@@ -8,6 +8,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "~/components/ui/empty"
+import { Kbd } from "~/components/ui/kbd"
 import type { Task } from "~/lib/api"
 import { TaskRow } from "./task-row"
 
@@ -74,8 +75,8 @@ export function TaskList({
             <Inbox className="size-5" />
           </EmptyMedia>
           <EmptyTitle>No tasks yet</EmptyTitle>
-          <EmptyDescription>
-            Write something below and tap + to add your first task.
+          <EmptyDescription className="font-sans">
+            Write below to add your first task.
           </EmptyDescription>
         </EmptyHeader>
       </Empty>
@@ -87,15 +88,17 @@ export function TaskList({
       <Empty className="h-full">
         <EmptyHeader>
           <EmptyMedia>
-            <Equal className="size-5" />
+            <Cone className="size-5" />
           </EmptyMedia>
           <EmptyTitle>No open tasks</EmptyTitle>
-          <EmptyDescription>Everything here is completed.</EmptyDescription>
+          <EmptyDescription className="font-sans">
+            Everything here is completed.
+          </EmptyDescription>
         </EmptyHeader>
         <EmptyContent>
           <Button
             variant="outline"
-            className="rounded-full"
+            className="rounded-full font-sans"
             onClick={onShowCompleted}
           >
             Show completed
